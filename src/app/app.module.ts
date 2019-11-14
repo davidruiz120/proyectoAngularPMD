@@ -23,7 +23,7 @@ import { InisesComponent } from './autentication/inises/inises.component';
 
 
 const routes: Routes = [
-  { path: '', component: InicioComponent },
+  { path: '', component: InicioComponent, canActivate: [GuardService] },
   { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
   { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
   { path: 'addprovee', component: AddproveeComponent, canActivate: [GuardService]},

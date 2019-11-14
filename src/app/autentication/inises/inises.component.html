@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <h4>Introduzca los siguientes datos:</h4>
+            <h4>Iniciar sesión</h4>
 
             <label>Correo Electrónico</label>
             <input type="email" id="inputEmail" class="form-control" formControlName="email" required autofocus>
@@ -16,6 +16,7 @@
             El usuario o contraseña no es correcto
         </p>
         <hr>
-        <p>Si no dispone de cuenta pulse <a routerLink="/registro">aquí</a></p>
+        <p>¿No dispone de una cuenta?</p>
+        <button type="button" class="btn btn-outline-primary" routerLink="/registro">Registrarse</button>
     </div>
 </div>
