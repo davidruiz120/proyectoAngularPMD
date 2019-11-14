@@ -1,0 +1,21 @@
+/**Implicará en primer lugar, que cuando el campo tenga los estados inválido
+y touched, es decir que no sea ha introducido correctamente el valor y se ha
+pasado al siguiente, se mostrara un borde rojo de 5 px en la izquierda del
+campo.*/
+input.ng-invalid.ng-touched {
+    border-left: 5px solid #a94442;
+}
+
+/** En cambio, si el campo se ha comenzado a completar y se valida, se mostrará
+un borde verde de 5 px*/
+input.ng-valid.ng-dirty {
+    border-left: 5px solid #42A948;
+}
+
+.check {
+    color: #42A948;
+}
+
+.uncheck {
+    color: #a94442;
+}
