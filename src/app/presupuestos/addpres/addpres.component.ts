@@ -1,6 +1,7 @@
 import { PresupuestosService } from './../../servicios/presupuestos.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addpres',
@@ -16,7 +17,7 @@ export class AddpresComponent implements OnInit {
   iva: any = 0;
   total: any = 0;
 
-  constructor(private pf: FormBuilder, private presupuestosService: PresupuestosService) { }
+  constructor(private pf: FormBuilder, private presupuestosService: PresupuestosService, private router: Router) { }
 
   ngOnInit() { // https://angular.io/api/forms/Validators
     this.presupuestoForm = this.pf.group({
@@ -44,8 +45,9 @@ export class AddpresComponent implements OnInit {
     this.presupuesto = this.savePresupuesto();
     this.presupuestosService.postPresupuesto(this.presupuesto)
       .subscribe(newpres => {
+        this.router.navigate(['/presupuestos'])
       })
-    this.presupuestoForm.reset();
+    //this.presupuestoForm.reset();
   }
 
   savePresupuesto() {

@@ -24,7 +24,7 @@ export class ProveedoresComponent implements OnInit {
   ngOnInit() {
   }
 
-  eliminarPresupuesto(id$) {
+  eliminarProveedor(id$) {
     this.proveedoresService.delProveedor(id$)
       .subscribe(res => {
         this.proveedores = [];

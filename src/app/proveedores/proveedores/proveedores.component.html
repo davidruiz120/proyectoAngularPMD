@@ -1,6 +1,6 @@
 <h3>Listado de Proveedores</h3>
 
-<a class="btn btn-primary float-md-right" routerLink="/addprovee">Añadir nuevo proveedor</a>
+<a class="btn btn-primary float-md-right" routerLink="/addprovee"><i class="fas fa-plus"></i> Añadir nuevo proveedor</a>
 <br>
 
 <div class="table-responsive">
@@ -21,10 +21,10 @@
             <td>{{ proveedor.telefono }}</td>
             <td>
                 <button type="button" class="btn btn-success"
-                    routerLink="/editpres/{{ proveedor.id$ }}">Editar</button>
+                    routerLink="/editprovee/{{ proveedor.id$ }}"><i class="fas fa-edit"></i></button>
             </td>
             <td>
-                <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id$)">Eliminar</button>
+                <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id$)"><i class="fas fa-trash"></i></button>
             </td>
         </tr>
     </tbody>

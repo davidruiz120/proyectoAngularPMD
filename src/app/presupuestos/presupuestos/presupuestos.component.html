@@ -1,5 +1,5 @@
 <h3>Listado de Presupuestos</h3>
-<a class="btn btn-primary float-md-right" routerLink="/addpres">Añadir nuevo presupuesto</a>
+<a class="btn btn-primary float-md-right" routerLink="/addpres"><i class="fas fa-plus"></i> Añadir nuevo presupuesto</a>
 <br>
 <div class="table-responsive">
     <table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
@@ -25,10 +25,10 @@
                 <td>{{ presupuesto.total }}</td>
                 <td>
                     <button type="button" class="btn btn-success"
-                        routerLink="/editpres/{{ presupuesto.id$ }}">Editar</button>
+                        routerLink="/editpres/{{ presupuesto.id$ }}"><i class="fas fa-edit"></i></button>
                 </td>
                 <td>
-                    <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)">Eliminar</button>
+                    <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
         </tbody>

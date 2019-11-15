@@ -1,17 +1,19 @@
 import { ProveedoresService } from './../../servicios/proveedores.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-addprovee',
-  templateUrl: './addprovee.component.html',
-  styleUrls: ['./addprovee.component.css']
+  selector: 'app-editprovee',
+  templateUrl: './editprovee.component.html',
+  styleUrls: ['./editprovee.component.css']
 })
-export class AddproveeComponent implements OnInit {
+export class EditproveeComponent implements OnInit {
 
   proveedorForm: FormGroup;
   proveedor: any;
+  id: string;
+
   provincias: string[] = [ 
     'Álava','Albacete','Alicante','Almería','Asturias','Ávila','Badajoz','Barcelona',
     'Burgos', 'Cáceres', 'Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba',
@@ -22,18 +24,14 @@ export class AddproveeComponent implements OnInit {
     'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya',
     'Zamora','Zaragoza' ]
 
-  constructor(private pf: FormBuilder, private proveedorService: ProveedoresService, private router: Router) {
-    this.proveedor = {
-      nombre: '',
-      cif: '',
-      direccion: '',
-      cp: '',
-      localidad: '',
-      provincia: '',
-      telefono: null,
-      email: '',
-      contacto: ''
-    }
+  constructor(private pf: FormBuilder, private proveedorService: ProveedoresService, 
+    private router: Router, private activatedRouter: ActivatedRoute) {
+      this.activatedRouter.params
+      .subscribe(parametros => {
+        this.id = parametros['id'];
+        this.proveedorService.getProveedor(this.id)
+          .subscribe(proveedor => this.proveedor = proveedor)
+      });
   }
 
   ngOnInit() {
@@ -50,13 +48,12 @@ export class AddproveeComponent implements OnInit {
     });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.proveedor = this.saveProveedor();
-    this.proveedorService.postProveedor( this.proveedor )
-      .subscribe(newpres => {
-        this.router.navigate(['/proveedores'])
-      });
-    //this.proveedorForm.reset();
+      this.proveedorService.putProveedor( this.proveedor, this.id )
+        .subscribe(newpre => {
+          this.router.navigate(['/proveedores'])
+    })
   }
 
   saveProveedor() {

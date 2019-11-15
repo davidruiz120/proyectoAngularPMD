@@ -20,6 +20,7 @@ import { PresupuestosComponent } from './presupuestos/presupuestos/presupuestos.
 import { EditpresComponent } from './presupuestos/editpres/editpres.component';
 import { RegistroComponent } from './autentication/registro/registro.component';
 import { InisesComponent } from './autentication/inises/inises.component';
+import { EditproveeComponent } from './proveedores/editprovee/editprovee.component';
 
 
 /* const routes: Routes = [
@@ -29,6 +30,7 @@ import { InisesComponent } from './autentication/inises/inises.component';
   { path: 'addprovee', component: AddproveeComponent, canActivate: [GuardService]},
   { path: 'addpres', component: AddpresComponent, canActivate: [GuardService]},
   { path: 'editpres/:id', component: EditpresComponent, canActivate: [GuardService]},
+  { path: 'editprovee/:id', component: EditproveeComponent, canActivate: [GuardService]},
   { path: 'registro', component: RegistroComponent},
   { path: 'iniciosesion', component: InisesComponent},
   { path: '**', component: InicioComponent}
@@ -42,6 +44,7 @@ const routes: Routes = [
   { path: 'addprovee', component: AddproveeComponent},
   { path: 'addpres', component: AddpresComponent},
   { path: 'editpres/:id', component: EditpresComponent},
+  { path: 'editprovee/:id', component: EditproveeComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'iniciosesion', component: InisesComponent},
   { path: '**', component: InicioComponent}
@@ -58,7 +61,8 @@ const routes: Routes = [
     PresupuestosComponent,
     EditpresComponent,
     RegistroComponent,
-    InisesComponent
+    InisesComponent,
+    EditproveeComponent
   ],
   imports: [
     BrowserModule,
