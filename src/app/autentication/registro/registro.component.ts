@@ -55,7 +55,7 @@ export class RegistroComponent implements OnInit {
           this.erroresForm[field] += messages[key] + ' ';
         }
       }
-    }            // Pag 198 | 200-PDF
+    }            
   }
 
   onSubmit() {

@@ -22,13 +22,26 @@ import { RegistroComponent } from './autentication/registro/registro.component';
 import { InisesComponent } from './autentication/inises/inises.component';
 
 
-const routes: Routes = [
+/* const routes: Routes = [
   { path: '', component: InicioComponent, canActivate: [GuardService] },
   { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
   { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
   { path: 'addprovee', component: AddproveeComponent, canActivate: [GuardService]},
   { path: 'addpres', component: AddpresComponent, canActivate: [GuardService]},
   { path: 'editpres/:id', component: EditpresComponent, canActivate: [GuardService]},
+  { path: 'registro', component: RegistroComponent},
+  { path: 'iniciosesion', component: InisesComponent},
+  { path: '**', component: InicioComponent}
+];
+ */
+
+const routes: Routes = [
+  { path: '', component: InicioComponent},
+  { path: 'proveedores', component: ProveedoresComponent},
+  { path: 'presupuestos', component: PresupuestosComponent},
+  { path: 'addprovee', component: AddproveeComponent},
+  { path: 'addpres', component: AddpresComponent},
+  { path: 'editpres/:id', component: EditpresComponent},
   { path: 'registro', component: RegistroComponent},
   { path: 'iniciosesion', component: InisesComponent},
   { path: '**', component: InicioComponent}

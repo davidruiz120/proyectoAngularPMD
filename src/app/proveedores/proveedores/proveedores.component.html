@@ -10,6 +10,8 @@
             <th>Nombre</th>
             <th>Correo Electrónico</th>
             <th>Telefono</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +19,13 @@
             <td>{{ proveedor.nombre }}</td>
             <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email }}</a></td>
             <td>{{ proveedor.telefono }}</td>
+            <td>
+                <button type="button" class="btn btn-success"
+                    routerLink="/editpres/{{ proveedor.id$ }}">Editar</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="eliminarProveedor(proveedor.id$)">Eliminar</button>
+            </td>
         </tr>
     </tbody>
 </table>

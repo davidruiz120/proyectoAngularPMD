@@ -8,12 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProveedoresComponent implements OnInit {
 
-  proveedores: any;
+  proveedores: any[] = [];
 
-  constructor(private proovedoresService: ProveedoresService) { }
+  constructor(private proveedoresService: ProveedoresService) { 
+    this.proveedoresService.getProveedores()
+      .subscribe(proveedores => {
+        for(const id$ in proveedores){
+          const p = proveedores[id$];
+          p.id$ = id$;
+          this.proveedores.push(proveedores[id$]);
+        }
+      })
+  }
 
   ngOnInit() {
-    this.proveedores = this.proovedoresService.getProveedores();
+  }
+
+  eliminarPresupuesto(id$) {
+    this.proveedoresService.delProveedor(id$)
+      .subscribe(res => {
+        this.proveedores = [];
+        this.proveedoresService.getProveedores()
+          .subscribe(proveedores => {
+            for (const id$ in proveedores) {
+              const p = proveedores[id$];
+              p.id$ = id$;
+              this.proveedores.push(proveedores[id$]);
+            }
+          })
+      });
   }
 
 }
