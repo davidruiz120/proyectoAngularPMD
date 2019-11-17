@@ -10,7 +10,29 @@ export class ProveedoresComponent implements OnInit {
 
   proveedores: any[] = [];
 
+
   constructor(private proveedoresService: ProveedoresService) { 
+    const promise = new Promise(
+      (resolve, reject) => {
+        this.proveedoresService.getProveedores()
+        .subscribe(proveedores => {
+          for(const id$ in proveedores){
+            const p = proveedores[id$];
+            p.id$ = id$;
+            this.proveedores.push(proveedores[id$]);
+            resolve(this.proveedores);
+          }
+        })
+      }
+    ).then((output:any) => {
+      document.getElementById("loading-proveedores").setAttribute("hidden", "hidden");
+    }).catch((error:any) =>{
+      console.log(error);
+    });
+  }
+
+
+  /*constructor(private proveedoresService: ProveedoresService) { 
     this.proveedoresService.getProveedores()
       .subscribe(proveedores => {
         for(const id$ in proveedores){
@@ -19,7 +41,7 @@ export class ProveedoresComponent implements OnInit {
           this.proveedores.push(proveedores[id$]);
         }
       })
-  }
+  }*/
 
   ngOnInit() {
   }

@@ -15,6 +15,15 @@
         </tr>
     </thead>
     <tbody>
+        <tr id="loading-proveedores">
+            <td colspan="5">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </td>
+        </tr>
         <tr *ngFor="let proveedor of proveedores">
             <td>{{ proveedor.nombre }}</td>
             <td><a href="mailto:{{ proveedor.email }}">{{ proveedor.email }}</a></td>

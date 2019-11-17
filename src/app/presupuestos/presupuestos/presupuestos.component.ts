@@ -10,7 +10,31 @@ export class PresupuestosComponent implements OnInit {
 
   presupuestos: any[] = [];
 
+
   constructor(private presupuestosService: PresupuestosService) {
+    const promise = new Promise(
+      (resolve, reject) => {
+        this.presupuestosService.getPresupuestos()
+        .subscribe(presupuestos => {
+          for (const id$ in presupuestos) {
+            const p = presupuestos[id$];
+            p.id$ = id$;
+            this.presupuestos.push(presupuestos[id$]);
+            resolve(this.presupuestos);
+          }
+        })
+      }
+    ).then((output:any) => {
+      document.getElementById("loading-presupuestos").setAttribute("hidden", "hidden");
+    }).catch((error:any) =>{
+      console.log(error);
+    });
+    
+    
+  }
+
+
+  /*constructor(private presupuestosService: PresupuestosService) {
     this.presupuestosService.getPresupuestos()
       .subscribe(presupuestos => {
         for (const id$ in presupuestos) {
@@ -19,7 +43,7 @@ export class PresupuestosComponent implements OnInit {
           this.presupuestos.push(presupuestos[id$]);
         }
       })
-  }
+  }*/
 
   ngOnInit() {
   }
