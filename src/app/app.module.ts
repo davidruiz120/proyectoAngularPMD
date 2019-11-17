@@ -21,34 +21,22 @@ import { EditpresComponent } from './presupuestos/editpres/editpres.component';
 import { RegistroComponent } from './autentication/registro/registro.component';
 import { InisesComponent } from './autentication/inises/inises.component';
 import { EditproveeComponent } from './proveedores/editprovee/editprovee.component';
+import { Pag404Component } from './pag404/pag404.component';
 
 
-/* const routes: Routes = [
+const routes: Routes = [
   { path: '', component: InicioComponent, canActivate: [GuardService] },
   { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
   { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
   { path: 'addprovee', component: AddproveeComponent, canActivate: [GuardService]},
   { path: 'addpres', component: AddpresComponent, canActivate: [GuardService]},
   { path: 'editpres/:id', component: EditpresComponent, canActivate: [GuardService]},
-  { path: 'editprovee/:id', component: EditproveeComponent, canActivate: [GuardService]},
+  { path: 'editprovee/:id', component: EditproveeComponent, },
   { path: 'registro', component: RegistroComponent},
   { path: 'iniciosesion', component: InisesComponent},
-  { path: '**', component: InicioComponent}
+  { path: '**', component: Pag404Component}
 ];
- */
 
-const routes: Routes = [
-  { path: '', component: InicioComponent},
-  { path: 'proveedores', component: ProveedoresComponent},
-  { path: 'presupuestos', component: PresupuestosComponent},
-  { path: 'addprovee', component: AddproveeComponent},
-  { path: 'addpres', component: AddpresComponent},
-  { path: 'editpres/:id', component: EditpresComponent},
-  { path: 'editprovee/:id', component: EditproveeComponent},
-  { path: 'registro', component: RegistroComponent},
-  { path: 'iniciosesion', component: InisesComponent},
-  { path: '**', component: InicioComponent}
-];
 
 @NgModule({
   declarations: [
@@ -62,7 +50,8 @@ const routes: Routes = [
     EditpresComponent,
     RegistroComponent,
     InisesComponent,
-    EditproveeComponent
+    EditproveeComponent,
+    Pag404Component
   ],
   imports: [
     BrowserModule,
